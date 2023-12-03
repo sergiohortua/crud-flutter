@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 
-class CardCustom extends StatelessWidget {
+class CardCustom extends StatefulWidget {
   const CardCustom({super.key});
 
+  @override
+  State<CardCustom> createState() => _CardCustomState();
+}
+
+class _CardCustomState extends State<CardCustom> {
   @override
   Widget build(BuildContext context) {
     return Card(
       color: Colors.red,
-      margin: EdgeInsets.all(12.0),
+      margin: const EdgeInsets.all(8.0),
       child: Padding(
-        padding: EdgeInsets.all(4.0),
+        padding: const EdgeInsets.fromLTRB(20.0, 20.0, 0.0, 20.0),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -17,33 +22,56 @@ class CardCustom extends StatelessWidget {
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('Foto'),
-                Text('Description'),
+                Container(
+                  width: 80.0,
+                  height: 80.0,
+                  decoration: const BoxDecoration(
+                    color: Colors.blue,
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('assets/astro.jpg'),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 12.0,
+                ),
+                const Text('Description'),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               width: 10.0,
             ),
-            Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [Text('Description'), Text('Age')]),
+            const Column(mainAxisSize: MainAxisSize.min, children: [
+              Text('Description'),
+              SizedBox(height: 10.0),
+              Text('Age'),
+            ]),
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
                   onPressed: () {
-                    print('delete');
+                    setState(() {
+                      print('delete');
+                    });
                   },
-                  icon: Icon(Icons.delete),
+                  icon: const Icon(Icons.delete),
+                ),
+                const SizedBox(
+                  height: 30.0,
                 ),
                 IconButton(
                   onPressed: () {
-                    print('delete');
+                    setState(() {
+                      print('edit');
+                    });
                   },
-                  icon: Icon(Icons.edit),
+                  icon: const Icon(Icons.edit),
                 )
               ],
-            )
+            ),
           ],
         ),
       ),
