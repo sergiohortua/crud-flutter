@@ -71,7 +71,7 @@ class _CardCustomState extends State<CardCustom> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (contex) => Details(),
+                          builder: (contex) => Details(widget.person),
                         ),
                       );
                     });

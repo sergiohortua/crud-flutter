@@ -1,7 +1,9 @@
+import 'package:crud/common/person.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatelessWidget {
-  const Details({super.key});
+  Person person;
+  Details(this.person, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,9 +21,11 @@ class Details extends StatelessWidget {
               SizedBox(
                 height: 10.0,
               ),
-              Text('Nombre'),
+              Text('Nombre: ${person.name}'),
               SizedBox(height: 10.0),
-              Text('Description'),
+              Text('Description: ${person.description}'),
+              SizedBox(height: 10.0),
+              Text('Age: ${person.age}'),
               SizedBox(height: 10.0),
             ],
           ),
