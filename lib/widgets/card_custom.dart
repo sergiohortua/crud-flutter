@@ -1,3 +1,4 @@
+import 'package:crud/screens/details.dart';
 import 'package:flutter/material.dart';
 
 class CardCustom extends StatefulWidget {
@@ -66,6 +67,12 @@ class _CardCustomState extends State<CardCustom> {
                   onPressed: () {
                     setState(() {
                       print('edit');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (contex) => Details(),
+                        ),
+                      );
                     });
                   },
                   icon: const Icon(Icons.edit),

@@ -1,4 +1,6 @@
+import 'package:crud/screens/details.dart';
 import 'package:crud/widgets/card_custom.dart';
+import 'package:crud/widgets/list_card_custom.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,13 +14,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-          appBar: AppBar(
-            title: const Text('Cards'),
-          ),
-          body: const CardCustom()),
-    );
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        home: ListCardCustom());
   }
 }
