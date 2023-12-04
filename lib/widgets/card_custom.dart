@@ -1,9 +1,10 @@
+import 'package:crud/common/person.dart';
 import 'package:crud/screens/details.dart';
 import 'package:flutter/material.dart';
 
 class CardCustom extends StatefulWidget {
-  const CardCustom({super.key});
-
+  Person person;
+  CardCustom(this.person, {super.key});
   @override
   State<CardCustom> createState() => _CardCustomState();
 }
@@ -38,16 +39,16 @@ class _CardCustomState extends State<CardCustom> {
                 const SizedBox(
                   height: 12.0,
                 ),
-                const Text('Description'),
+                Text('Name: ${widget.person.name}'),
               ],
             ),
             const SizedBox(
               width: 10.0,
             ),
-            const Column(mainAxisSize: MainAxisSize.min, children: [
-              Text('Description'),
+            Column(mainAxisSize: MainAxisSize.min, children: [
+              Text('Description: ${widget.person.description}'),
               SizedBox(height: 10.0),
-              Text('Age'),
+              Text('Age: ${widget.person.age}'),
             ]),
             Column(
               mainAxisSize: MainAxisSize.min,
