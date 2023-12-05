@@ -3,8 +3,10 @@ import 'package:crud/screens/details.dart';
 import 'package:flutter/material.dart';
 
 class CardCustom extends StatefulWidget {
+  final Function _function;
   Person person;
-  CardCustom(this.person, {super.key});
+  int index;
+  CardCustom(this._function, this.index, this.person, {super.key});
   @override
   State<CardCustom> createState() => _CardCustomState();
 }
@@ -56,6 +58,7 @@ class _CardCustomState extends State<CardCustom> {
                 IconButton(
                   onPressed: () {
                     setState(() {
+                      widget._function(widget.index);
                       print('delete');
                     });
                   },
@@ -67,7 +70,6 @@ class _CardCustomState extends State<CardCustom> {
                 IconButton(
                   onPressed: () {
                     setState(() {
-                      print('edit');
                       Navigator.push(
                         context,
                         MaterialPageRoute(

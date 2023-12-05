@@ -2,9 +2,14 @@ import 'package:crud/common/person.dart';
 import 'package:crud/widgets/card_custom.dart';
 import 'package:flutter/material.dart';
 
-class ListCardCustom extends StatelessWidget {
+class ListCardCustom extends StatefulWidget {
   ListCardCustom({super.key});
 
+  @override
+  State<ListCardCustom> createState() => _ListCardCustomState();
+}
+
+class _ListCardCustomState extends State<ListCardCustom> {
   List<Person> people = [
     Person('Anderson', 'Ingeniero', 28),
     Person('Pancho', 'Desarrollador', 32),
@@ -15,6 +20,14 @@ class ListCardCustom extends StatelessWidget {
     Person('Christian', 'Desarrollador', 70),
   ];
 
+  void deleteCard(index) {
+    setState(() {
+      if (people.isNotEmpty) {
+        people.removeAt(index);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +36,8 @@ class ListCardCustom extends StatelessWidget {
       ),
       body: ListView.builder(
         itemCount: people.length,
-        itemBuilder: (context, index) => CardCustom(people[index]),
+        itemBuilder: (context, index) =>
+            CardCustom(deleteCard, index, people[index]),
       ),
     );
   }
