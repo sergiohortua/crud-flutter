@@ -59,7 +59,6 @@ class _CardCustomState extends State<CardCustom> {
                   onPressed: () {
                     setState(() {
                       widget._function(widget.index);
-                      print('delete');
                     });
                   },
                   icon: const Icon(Icons.delete),
@@ -73,8 +72,11 @@ class _CardCustomState extends State<CardCustom> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (contex) => Details(widget.person),
+                          builder: (contex) =>
+                              Details(widget.index, widget.person),
                         ),
+                      ).then(
+                        (value) => {setState(() {}), widget.person = value},
                       );
                     });
                   },

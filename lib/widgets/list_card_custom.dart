@@ -1,4 +1,5 @@
 import 'package:crud/common/person.dart';
+import 'package:crud/screens/add_person.dart';
 import 'package:crud/widgets/card_custom.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +31,7 @@ class _ListCardCustomState extends State<ListCardCustom> {
 
   @override
   Widget build(BuildContext context) {
+    print(people);
     return Scaffold(
       appBar: AppBar(
         title: Text('List Cards'),
@@ -38,6 +40,20 @@ class _ListCardCustomState extends State<ListCardCustom> {
         itemCount: people.length,
         itemBuilder: (context, index) =>
             CardCustom(deleteCard, index, people[index]),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => AddPerson(),
+            ),
+          ).then((value) => {
+                setState(() {}),
+                people.add(value),
+              });
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

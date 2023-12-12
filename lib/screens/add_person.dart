@@ -1,32 +1,29 @@
 import 'package:crud/common/person.dart';
 import 'package:flutter/material.dart';
 
-class Details extends StatefulWidget {
-  Person person;
-  int index;
+class AddPerson extends StatefulWidget {
+  // Person person;
+  // int index;
 
-  Details(this.index, this.person, {super.key});
+  AddPerson({super.key});
 
   @override
-  State<Details> createState() => _DetailsState();
+  State<AddPerson> createState() => _AddPersonState();
 }
 
-class _DetailsState extends State<Details> {
-  final TextEditingController _textEditingControllerName =
+class _AddPersonState extends State<AddPerson> {
+  final TextEditingController _textAddControllerName = TextEditingController();
+
+  final TextEditingController _textAddControllerDescription =
       TextEditingController();
 
-  final TextEditingController _textEditingControllerDescription =
-      TextEditingController();
-
-  final TextEditingController _textEditingControllerAge =
-      TextEditingController();
+  final TextEditingController _textAddControllerAge = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    print('PERSONA: ${widget.person}');
-    _textEditingControllerName.text = widget.person.name;
-    _textEditingControllerDescription.text = widget.person.description;
-    _textEditingControllerAge.text = widget.person.age.toString();
+    // _textEditingControllerName.text = widget.person.name;
+    // _textEditingControllerDescription.text = widget.person.description;
+    // _textEditingControllerAge.text = widget.person.age.toString();
 
     return Scaffold(
       appBar: AppBar(
@@ -64,7 +61,7 @@ class _DetailsState extends State<Details> {
                     SizedBox(
                         width: 150.0,
                         child: TextField(
-                          controller: _textEditingControllerName,
+                          controller: _textAddControllerName,
                           onChanged: (value) => {print(value)},
                         )),
                   ],
@@ -80,7 +77,7 @@ class _DetailsState extends State<Details> {
                     SizedBox(
                         width: 150.0,
                         child: TextField(
-                          controller: _textEditingControllerDescription,
+                          controller: _textAddControllerDescription,
                           onChanged: (value) => {print(value)},
                         )),
                   ],
@@ -96,7 +93,7 @@ class _DetailsState extends State<Details> {
                     SizedBox(
                         width: 150.0,
                         child: TextField(
-                          controller: _textEditingControllerAge,
+                          controller: _textAddControllerAge,
                           onChanged: (value) => (print(value)),
                         )),
                   ],
@@ -107,15 +104,14 @@ class _DetailsState extends State<Details> {
                   children: [
                     ElevatedButton(
                       onPressed: () {
-                        int age =
-                            int.tryParse(_textEditingControllerAge.text) ?? 0;
+                        int age = int.tryParse(_textAddControllerAge.text) ?? 0;
 
                         setState(() {
                           Navigator.pop(
                               context,
                               Person(
-                                _textEditingControllerName.text,
-                                _textEditingControllerDescription.text,
+                                _textAddControllerName.text,
+                                _textAddControllerDescription.text,
                                 age,
                               ));
                         });
