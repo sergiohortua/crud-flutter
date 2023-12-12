@@ -31,7 +31,6 @@ class _ListCardCustomState extends State<ListCardCustom> {
 
   @override
   Widget build(BuildContext context) {
-    print(people);
     return Scaffold(
       appBar: AppBar(
         title: Text('List Cards'),

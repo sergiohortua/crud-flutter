@@ -62,7 +62,6 @@ class _AddPersonState extends State<AddPerson> {
                         width: 150.0,
                         child: TextField(
                           controller: _textAddControllerName,
-                          onChanged: (value) => {print(value)},
                         )),
                   ],
                 ),
@@ -78,7 +77,6 @@ class _AddPersonState extends State<AddPerson> {
                         width: 150.0,
                         child: TextField(
                           controller: _textAddControllerDescription,
-                          onChanged: (value) => {print(value)},
                         )),
                   ],
                 ),
@@ -94,7 +92,6 @@ class _AddPersonState extends State<AddPerson> {
                         width: 150.0,
                         child: TextField(
                           controller: _textAddControllerAge,
-                          onChanged: (value) => (print(value)),
                         )),
                   ],
                 ),

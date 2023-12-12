@@ -23,7 +23,6 @@ class _DetailsState extends State<Details> {
 
   @override
   Widget build(BuildContext context) {
-    print('PERSONA: ${widget.person}');
     _textEditingControllerName.text = widget.person.name;
     _textEditingControllerDescription.text = widget.person.description;
     _textEditingControllerAge.text = widget.person.age.toString();
@@ -65,7 +64,6 @@ class _DetailsState extends State<Details> {
                         width: 150.0,
                         child: TextField(
                           controller: _textEditingControllerName,
-                          onChanged: (value) => {print(value)},
                         )),
                   ],
                 ),
@@ -81,7 +79,6 @@ class _DetailsState extends State<Details> {
                         width: 150.0,
                         child: TextField(
                           controller: _textEditingControllerDescription,
-                          onChanged: (value) => {print(value)},
                         )),
                   ],
                 ),
@@ -97,7 +94,6 @@ class _DetailsState extends State<Details> {
                         width: 150.0,
                         child: TextField(
                           controller: _textEditingControllerAge,
-                          onChanged: (value) => (print(value)),
                         )),
                   ],
                 ),
